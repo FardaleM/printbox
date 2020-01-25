@@ -16,6 +16,9 @@ doc:
 clean:
 	@dune clean
 
+examples:
+	dune build examples/lambda.exe
+
 VERSION=$(shell awk '/^version:/ {print $$2}' printbox.opam)
 update_next_tag:
 	@echo "update version to $(VERSION)..."
@@ -25,4 +28,4 @@ update_next_tag:
 watch:
 	@dune build @all -w
 
-.PHONY: all build test clean doc watch
+.PHONY: all build test clean doc watch examples
